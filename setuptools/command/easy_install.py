@@ -1939,11 +1939,11 @@ def is_python_script(script_text, filename):
     """
     if filename.endswith('.py') or filename.endswith('.pyw'):
         return True  # extension says it's Python
-    if is_python(script_text, filename):
-        return True  # it's syntactically valid Python
     if script_text.startswith('#!'):
         # It begins with a '#!' line, so check if 'python' is in it somewhere
         return 'python' in script_text.splitlines()[0].lower()
+    if is_python(script_text, filename):
+        return True  # it's syntactically valid Python
 
     return False  # Not any Python I can recognize
 
